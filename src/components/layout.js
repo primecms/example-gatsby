@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import { isPreview, clearPreview } from "../utils/prime";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -35,6 +36,9 @@ const Layout = ({ children }) => (
             {` and `}
             <a href="https://birkir.github.io/prime">Prime</a>
           </footer>
+          <div style={{ marginTop: 16 }}>
+            {isPreview() && <button onClick={clearPreview}>Clear Preview</button>}
+          </div>
         </div>
       </>
     )}
