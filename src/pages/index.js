@@ -28,7 +28,7 @@ export const query = graphql`
 const BlogPost = ({ node }) => {
   return (
     <div key={node.id}>
-      <time datetime={node._meta.updatedAt}>{format(node._meta.updatedAt, 'MM/DD/YYYY')}</time>
+      <time dateTime={node._meta.updatedAt}>{format(node._meta.updatedAt, 'MM/DD/YYYY')}</time>
       <h3><Link to={`/blog/${node.id}`}>{node.title}</Link></h3>
     </div>
   );

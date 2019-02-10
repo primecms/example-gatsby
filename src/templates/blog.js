@@ -27,7 +27,7 @@ const Blog = (props) => {
   return (
     <Layout>
       <SEO title={Blog.title} />
-      <time datetime={Blog._meta.updatedAt}>{format(Blog._meta.updatedAt, 'MM/DD/YYYY')}</time>
+      <time dateTime={Blog._meta.updatedAt}>{format(Blog._meta.updatedAt, 'MM/DD/YYYY')}</time>
       <h1>{Blog.title}</h1>
       <ReactMarkdown source={Blog.body} />
       <Link to="/">Go back</Link>

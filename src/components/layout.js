@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
+import { isPreviewing, clearPreview } from "apollo-link-prime";
 
 import Header from "./header"
 import "./layout.css"
-import { isPreview, clearPreview } from "../utils/prime";
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
             <a href="https://birkir.github.io/prime">Prime</a>
           </footer>
           <div style={{ marginTop: 16 }}>
-            {isPreview() && <button onClick={clearPreview}>Clear Preview</button>}
+            {isPreviewing() && <button onClick={clearPreview}>Clear Preview</button>}
           </div>
         </div>
       </>
