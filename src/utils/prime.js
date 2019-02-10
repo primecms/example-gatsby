@@ -6,7 +6,6 @@ import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
-import { getPreviewHeaders } from "./prime";
 
 const httpLink = new HttpLink({
   uri: new URL(global.___graphqlUniversal.prime.url),
@@ -79,13 +78,13 @@ export const clearPreview = () => {
 
 export const usePreview = (props, query) => {
   const [data, setData] = React.useState(props.data);
-  React.useEffect(() => {
-    client.query({
-      query: getIsolatedQuery(query, 'prime', 'Prime'),
-      variables: props.pathContext,
-    })
-    .then(({ data: prime }) => setData({ prime }))
-  }, []);
+  // React.useEffect(() => {
+  //   client.query({
+  //     query: getIsolatedQuery(query, 'prime', 'Prime'),
+  //     variables: props.pathContext,
+  //   })
+  //   .then(({ data: prime }) => setData({ prime }))
+  // }, []);
 
   return data;
 }
