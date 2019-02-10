@@ -1,4 +1,5 @@
 import React from 'react';
+import fetch from 'cross-fetch';
 import { getIsolatedQuery } from 'gatsby-source-graphql-universal';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -7,8 +8,15 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 
+const endpoint = 'https://example-prime.herokuapp.com/';
+const localStorage = global.localStorage || {
+  getItem() { return null; },
+  setItem() { return null },
+}
+
+
 const httpLink = new HttpLink({
-  uri: new URL(global.___graphqlUniversal.prime.url),
+  uri: `${endpoint}/graphql`,
   fetch,
 });
 
@@ -48,9 +56,7 @@ export const getPreviewHeaders = async () => {
     }, {});
 
   if (query.hasOwnProperty('prime.id')) {
-    const url = new URL(global.___graphqlUniversal.prime.url);
-    url.pathname = '/prime/preview';
-    url.search = `?id=${query['prime.id']}`;
+    const url = `${endpoint}/prime/preview?id=${query['prime.id']}`;
     const res = await fetch(url, { credentials: 'include' }).then(r => r.json());
     localStorage.setItem('x-prime-token', res.accessToken);
     localStorage.setItem('x-prime-preview', res.document.id);
@@ -78,13 +84,15 @@ export const clearPreview = () => {
 
 export const usePreview = (props, query) => {
   const [data, setData] = React.useState(props.data);
-  // React.useEffect(() => {
-  //   client.query({
-  //     query: getIsolatedQuery(query, 'prime', 'Prime'),
-  //     variables: props.pathContext,
-  //   })
-  //   .then(({ data: prime }) => setData({ prime }))
-  // }, []);
+    React.useEffect(() => {
+      if (typeof window !== 'undefined') {
+        client.query({
+          query: getIsolatedQuery(query, 'prime', 'Prime'),
+          variables: props.pathContext,
+        })
+        .then(({ data: prime }) => setData({ prime }))
+      }
+    }, []);
 
   return data;
 }
