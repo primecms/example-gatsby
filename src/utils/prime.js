@@ -8,7 +8,7 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 
-const endpoint = 'https://example-prime.herokuapp.com/';
+const endpoint = 'https://example-prime.herokuapp.com';
 const localStorage = global.localStorage || {
   getItem() { return null; },
   setItem() { return null },
