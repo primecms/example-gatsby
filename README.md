@@ -41,6 +41,17 @@ $ yarn develop (for developing) or yarn build (to deploy).
 
 ### Setting up Prime CMS
 
+This example uses a [apollo-link-prime](https://github.com/primecms/apollo-link-prime) to fetch post from an instance of Prime CMS (which is running a Graphql server) you can add your own deploy of Prime CMS in `utils/prime.js`
+
+```
+export const client = new ApolloClient({
+  link: PrimeLink({
+    url: "https://example-prime.herokuapp.com"
+  }),
+  cache: new InMemoryCache()
+});
+```
+
 #### [📖 Read Docs](https://docs.primecms.app)
 
 🚧 Prime is currently in beta 🚧
