@@ -1,4 +1,7 @@
-# Gatsby + Prime CMS
+<p align="center">
+  <a href="https://docs.primecms.app"><img alt="Prime + Gatsby example" width="330px" src="primegatsby.png" /></a>
+</p>
+<p align="center"><strong>Gatsby + Prime CMS</strong></p>
 
 **Note:** This starter uses [The default Gatsby starter](<[https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/](https://github.com/gatsbyjs/gatsby-starter-default)>).
 
@@ -41,7 +44,7 @@ $ yarn develop (for developing) or yarn build (to deploy).
 
 ### Setting up Prime CMS
 
-This example uses a [apollo-link-prime](https://github.com/primecms/apollo-link-prime) to fetch post from an instance of Prime CMS (which is running a Graphql server) you can add your own deploy of Prime CMS in `utils/prime.js`
+This example uses a [apollo-link-prime](https://github.com/primecms/apollo-link-prime) to fetch posts from an instance of Prime CMS (which is running a Graphql server) you can add your own deploy of Prime CMS in `utils/prime.js`
 
 ```
 export const client = new ApolloClient({
@@ -51,6 +54,8 @@ export const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 ```
+
+To learn about Prime CMS:
 
 #### [📖 Read Docs](https://docs.primecms.app)
 
