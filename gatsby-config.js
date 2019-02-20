@@ -4,14 +4,13 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`
   },
-  pathPrefix: '/example-gatsby',
   plugins: [
     {
       resolve: `gatsby-source-graphql-universal`,
       options: {
         typeName: `Prime`,
         fieldName: `prime`,
-        url: `https://example-prime.herokuapp.com/graphql`,
+        url: `https://example-prime.herokuapp.com/graphql`
       }
     },
     `gatsby-plugin-react-helmet`,
