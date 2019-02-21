@@ -1255,10 +1255,10 @@ apollo-link-http@^1.3.1, apollo-link-http@^1.5.4, apollo-link-http@^1.5.9:
     apollo-link "^1.2.8"
     apollo-link-http-common "^0.2.10"
 
-apollo-link-prime@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/apollo-link-prime/-/apollo-link-prime-0.3.2.tgz#8f750b4f1e9323e98a72ea263977977688638d2e"
-  integrity sha512-pvKaGjO9umtRoawymlImEK+mBINhstapWRDnZLpHXmz3VScgEE21FRkKrImShL53fxhvrBaqsXfv/+i2rEz4ZQ==
+apollo-link-prime@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/apollo-link-prime/-/apollo-link-prime-0.3.3.tgz#64fa7922b92fd12e928abbdf616f8a7ecc284383"
+  integrity sha512-jfQ4/Nt6L4DomrNAXxgiaeENJBhSSbCf7aBeWsxslNivsD0GKsmgkybSq5IqYoNemTU0YM7AqEqUIJ+pKXtzjQ==
   dependencies:
     "@babel/runtime" "7.3.1"
     apollo-link "^1.2.6"
